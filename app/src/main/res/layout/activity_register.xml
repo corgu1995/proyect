@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="co.edu.udea.compumovil.gr8.lab1ui.MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/registerLayout"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameRegisterField"
+                android:hint="@string/logUser"
+                android:imeOptions="actionNext"
+                android:digits="abcdefghijklmnopqrstuvwxyz"
+                android:inputType="textNoSuggestions"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/userpassRegisterField" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/userpassRegisterField"
+                android:hint="@string/logPass"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|textPassword"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirmpassRegisterField"
+                android:hint="@string/confirmPass"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|textPassword"
+                android:layout_below="@+id/userpassRegisterField"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:id="@+id/registerButton"
+                android:onClick="onClickRegisterUser"
+                android:layout_marginLeft="74dp"
+                android:layout_marginStart="74dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comeBack"
+                android:id="@+id/backRegisterButton"
+                    android:onClick="onClickGoBack"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/registerButton"
+                android:layout_toEndOf="@+id/registerButton" />
+
+
+        </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Dibujando</string>
+    <string name="start_new">New</string>
+    <string name="brush">Brush</string>
+    <string name="erase">Erase</string>
+    <string name="save">Save</string>
+    <string name="paint">Paint</string>
+    <string name="goBack">Go Back</string>
+
+    <string name="open">Abierto</string>
+    <string name="create">Añadir carrera</string>
+    <string name="closed">Cerrado</string>
+    <string name="logUser">Usuario</string>
+    <string name="logPass">Contraseña</string>
+    <string name="checkRemem">Recordarme</string>
+    <string name="confirmPass">Confirmar contraseña</string>
+    <string name="email">Correo</string>
+    <string name="register">Registrar</string>
+    <string name="logRegister">Registrarse</string>
+    <string name="comeBack">Regresar</string>
+    <string name="log">Iniciar sesion</string>
+    <string name="closeSure">Esta seguro ?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="career">Carreras</string>
+    <string name="info">Info. Aplicación</string>
+    <string name="developers">Perfil desarrolladores</string>
+    <string name="closeSession">Cerrar sesion</string>
+    <string name="out">Salir</string>
+    <string name="mistake1">Por favor ingrese todos los campos</string>
+    <string name="mistake2">Usuario no existente</string>
+    <string name="mistake3">Datos incorrectos</string>
+    <string name="mistake4">la contraseña no coincide con la confirmación</string>
+    <string name="mistake5">Usuario ya registrado</string>
+    <string name="mistake6">Usuario ingresado</string>
+    <string name="mistake7">Carrera ya registrada</string>
+    <string name="mistake8">Carrera ingresada</string>
+    <string name="name">Nombre</string>
+    <string name="distance">Distancia</string>
+    <string name="place">Lugar</string>
+    <string name="date">Fecha</string>
+    <string name="add">Añadir</string>
+
+    <string name="sml">Small</string>
+    <string name="med">Medium</string>
+    <string name="lrg">Large</string>
+
+</resources>
