@@ -1,9 +1,16 @@
 package com.example.santiagoromeroinv.main;
 
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -13,7 +20,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.santiagoromeroinv.activities.SettingsActivity;
+import com.example.santiagoromeroinv.bluetooth.BluetoothDeviceArrayAdapter;
+import com.example.santiagoromeroinv.bluetooth.BluetoothService;
 import com.example.santiagoromeroinv.database.LoginDbManager;
 import com.example.santiagoromeroinv.R;
 
@@ -21,23 +32,20 @@ import com.example.santiagoromeroinv.drawing.DrawingActivity;
 import com.example.santiagoromeroinv.layout.ActivityMainFragment;
 import com.example.santiagoromeroinv.layout.AppInfoFragment;
 import com.example.santiagoromeroinv.layout.DevelopersInfoFragment;
-import com.example.santiagoromeroinv.layout.SettingsFragment;
 import com.example.santiagoromeroinv.login.LoginActivity;
+import com.example.santiagoromeroinv.login.RegisterActivity;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
-
-
+    private static final int   REQUEST_ENABLE_BT  = 1;
     private String[] opciones = null;
     private DrawerLayout drawerLayout = null;
     private ListView listView = null;
-
     private CharSequence tituloSec = null;
-
     private Button letsPlayButton = null;
-
+    private static final int REQUEST_CODE=11;
     private ActionBarDrawerToggle drawerToggle = null;
 
     private ActivityMainFragment mainFragment = null;
@@ -47,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         letsPlayButton = (Button) findViewById(R.id.startGameButton);
-
         mainFragment = new ActivityMainFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frameContainer, mainFragment).commit();
@@ -78,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
                 AppInfoFragment fragment2 = null;
                 DevelopersInfoFragment fragment3 = null;
-                SettingsFragment SettingsFragment = null;
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
                 switch (position) {
@@ -89,11 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                 .commit();
                         break;
                     case 1:
-                        SettingsFragment = new SettingsFragment();
-                        //R.layout.fragment_list
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.frameContainer, SettingsFragment)
-                                .commit();
+                        goSettings();
                         break;
                     case 2:
                         fragment2 = new AppInfoFragment();
@@ -149,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void goSettings(){
+        Intent i = new Intent(this,SettingsActivity.class);
+        startActivityForResult(i, REQUEST_CODE);
+    }
     private void closeSession() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
@@ -196,21 +201,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClickBack(View view){
 
-        FragmentManager transaction = getSupportFragmentManager();
-        SettingsFragment newFragment1 = new SettingsFragment();
-        transaction.beginTransaction()
-                .replace(R.id.frameContainer, newFragment1)
-                .addToBackStack(null)
-                .commit();
-    }
 
     public void startGame(View view){
         Intent i = new Intent(this,DrawingActivity.class);
         finish();
         startActivity(i);
     }
-
 
 }
