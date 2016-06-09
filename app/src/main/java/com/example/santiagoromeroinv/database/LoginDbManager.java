@@ -11,9 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class LoginDbManager {
 
     public static final String TABLE_NAME = "loggedUser";
-
     public static final String ACCOUNT = "account";
-
     public static final String CREATE_TABLE = "create table " + TABLE_NAME + " ("
             + ACCOUNT + " text primary key);";
 

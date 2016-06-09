@@ -4,12 +4,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.santiagoromeroinv.util.Constants;
+
 /**
  * Created by Romero-Pc on 22/03/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper{
 
-    private static final String DB_NAME = "lab2apprundatabase.sqlite"; // DB file name
+    private static final String DB_NAME = "dibujandodb.sqlite"; // DB file name
     private static int DB_SCHEME_VERSION = 1; // Scheme version
 
     public DatabaseHelper(Context context) {
@@ -20,6 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(UserDbManager.CREATE_TABLE);
         db.execSQL(LoginDbManager.CREATE_TABLE);
+        db.execSQL(PalabrasDbManager.CREATE_TABLE);
     }
 
     @Override

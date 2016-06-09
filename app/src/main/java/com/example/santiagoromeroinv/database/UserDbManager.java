@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 public class UserDbManager {
 
     public static final String TABLE_NAME = "user";
-
     public static final String ACCOUNT = "account";
     public static final String PASSWORD = "password";
 

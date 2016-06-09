@@ -23,6 +23,8 @@ import com.example.santiagoromeroinv.layout.AppInfoFragment;
 import com.example.santiagoromeroinv.layout.DevelopersInfoFragment;
 import com.example.santiagoromeroinv.layout.SettingsFragment;
 import com.example.santiagoromeroinv.login.LoginActivity;
+import com.example.santiagoromeroinv.util.Constants;
+import com.example.santiagoromeroinv.util.DibujandoApp;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,14 +41,20 @@ public class MainActivity extends AppCompatActivity {
     private Button letsPlayButton = null;
 
     private ActionBarDrawerToggle drawerToggle = null;
-
+    private DibujandoApp dibujandoApp = null;
     private ActivityMainFragment mainFragment = null;
     private LoginDbManager loginDbManager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dibujandoApp = DibujandoApp.getInstance();
+        dibujandoApp.setActivity(this);
+
+        Constants.createWordsList();
 
         letsPlayButton = (Button) findViewById(R.id.startGameButton);
 
