@@ -115,4 +115,7 @@ public class DrawingView extends View {
         paintColor = Color.parseColor(newColor);
         drawPaint.setColor(paintColor);
     }
+    public void bitM(Bitmap bitmap){
+        drawCanvas.drawBitmap(bitmap,0,0,canvasPaint);
+    }
 }

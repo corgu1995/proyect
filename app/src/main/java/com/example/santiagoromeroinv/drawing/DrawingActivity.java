@@ -3,6 +3,7 @@ package com.example.santiagoromeroinv.drawing;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.santiagoromeroinv.R;
+import com.example.santiagoromeroinv.activities.SettingsActivity;
 import com.example.santiagoromeroinv.main.MainActivity;
 
+import java.nio.ByteBuffer;
 import java.util.UUID;
 
 public class DrawingActivity extends AppCompatActivity {
@@ -22,6 +25,10 @@ public class DrawingActivity extends AppCompatActivity {
     private DrawingView drawView;
     private float smallBrush, mediumBrush, largeBrush;
     private ImageButton currPaint;
+    private SettingsActivity send;
+    public Bitmap bmp;
+    private ByteBuffer b;
+    public byte[] bytes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +95,10 @@ public class DrawingActivity extends AppCompatActivity {
         saveDialog.setMessage("Save drawing to device Gallery?");
         saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+                byte[] byteArray;
                 drawView.setDrawingCacheEnabled(true);
+                byteArray=convert();
+                send.enviar(byteArray);
                 String imgSaved = MediaStore.Images.Media.insertImage(
                         getContentResolver(), drawView.getDrawingCache(),
                         UUID.randomUUID().toString() + ".png", "drawing");
@@ -176,6 +186,14 @@ public class DrawingActivity extends AppCompatActivity {
             currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint));
             currPaint=(ImageButton)view;
         }
+    }
+    public byte[] convert(){
+        bmp=drawView.getDrawingCache();
+        int size = bmp.getRowBytes()*bmp.getHeight();
+        b= ByteBuffer.allocate(size);
+        bmp.copyPixelsToBuffer(b);
+        bytes= b.array();
+        return bytes;
     }
 
 }

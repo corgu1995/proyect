@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,7 +27,9 @@ import android.widget.Toast;
 import com.example.santiagoromeroinv.R;
 import com.example.santiagoromeroinv.bluetooth.BluetoothDeviceArrayAdapter;
 import com.example.santiagoromeroinv.bluetooth.BluetoothService;
+import com.example.santiagoromeroinv.drawing.DrawingView;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -37,8 +40,7 @@ public class SettingsActivity extends Activity {
 
     private static final int   REQUEST_ENABLE_BT  = 1;
     private static final String ALERTA  = "alerta";
-
-
+    private DrawingView drawView;
     private ImageButton btnBluetooth;
     private Button btnBuscarDispositivo;
     private Button btnConectarDispositivo;
@@ -46,7 +48,7 @@ public class SettingsActivity extends Activity {
     private TextView tvMensaje;
     private TextView tvConexion;
     private ListView lvDispositivos;
-
+    public Bitmap bmp;
     private BluetoothAdapter bAdapter;             // Adapter para uso del Bluetooth
     private ArrayList<BluetoothDevice> arrayDevices;   // Listado de dispositivos
     private ArrayAdapter arrayAdapter;             // Adaptador para el listado de dispositivos
@@ -204,8 +206,8 @@ public class SettingsActivity extends Activity {
         @Override
         public void handleMessage(Message msg)
         {
-            byte[] buffer  = null;
-            String mensaje     = null;
+            byte[] bytes  = null;
+            String mensaje = null;
 
             //Se verifica el estado nuevamente con una estructura switch
             switch(msg.what)
@@ -213,8 +215,16 @@ public class SettingsActivity extends Activity {
                 // Mensaje de lectura: En este caso se convierte el mensaje para ser mostrado
                 case BluetoothService.MSG_LEER:
                 {
-                    buffer = (byte[])msg.obj;
-                    mensaje = new String(buffer, 0, msg.arg1);
+                    bytes = (byte[])msg.obj;
+                    bmp=drawView.getDrawingCache();
+                    Bitmap.Config configBmp = Bitmap.Config.valueOf(bmp.getConfig().name());
+                    int width = bmp.getWidth();
+                    int height = bmp.getHeight();
+                    Bitmap bitmap_tmp = Bitmap.createBitmap(width, height, configBmp);
+                    ByteBuffer buffer = ByteBuffer.wrap(bytes);
+                    bitmap_tmp.copyPixelsFromBuffer(buffer);
+                    drawView.bitM(bitmap_tmp);
+                    //mensaje = new String(buffer, 0, msg.arg1);
                     tvMensaje.setText(mensaje);
                     break;
                 }
@@ -222,8 +232,8 @@ public class SettingsActivity extends Activity {
                 // Mensaje de escritura:
                 case BluetoothService.MSG_ESCRIBIR:
                 {
-                    buffer = (byte[])msg.obj;
-                    mensaje = new String(buffer);
+                    bytes = (byte[])msg.obj;
+                    mensaje = new String(bytes);
                     mensaje = "Enviando mensaje" + ": " + mensaje;
                     Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();
                     break;
@@ -411,6 +421,10 @@ public class SettingsActivity extends Activity {
 
     }
 
+    public void enviar(byte[] buffer){
+
+
+    }
 
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
