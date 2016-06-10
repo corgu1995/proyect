@@ -56,6 +56,5 @@ public class RegisterActivity extends AppCompatActivity {
             pass.setText("");
             passConfirm.setText("");
         }
-        finish();
     }
 }

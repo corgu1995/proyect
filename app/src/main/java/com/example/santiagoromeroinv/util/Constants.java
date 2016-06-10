@@ -7,7 +7,6 @@ import com.example.santiagoromeroinv.bluetooth.BluetoothService;
 import com.example.santiagoromeroinv.database.PalabrasDbManager;
 import com.example.santiagoromeroinv.drawing.DrawingView;
 
-import java.util.List;
 
 /**
  * Created by santiago.romero on 9/06/16.
