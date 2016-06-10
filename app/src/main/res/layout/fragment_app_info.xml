@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.AppInfoFragment"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/appInfoLayout"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="#AA000000"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="wrap_content"
+                android:id="@+id/appInfoTextTitle"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Proyecto" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:id="@+id/appInfoTextSubject"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Computación móvil" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/appInfoTextTeacher"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="Sebastián Guzmán Obando" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/appInfoTextDate"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="2016 - 1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/cerokillsLogo"
+                android:src="@drawable/like_pip_boy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

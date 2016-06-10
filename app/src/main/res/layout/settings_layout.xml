@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/tvMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="sdasdfasas"
+        android:text=""/>
+
+
+        <ListView
+            android:id="@+id/lvDispositivos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </ListView>
+
+
+    <Button
+        android:id="@+id/btnBuscarDispositivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar Dispositivo"
+        android:onClick="searchDevices"/>
+
+    <Button
+        android:id="@+id/btnConectarDispositivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Enlazados"
+        android:onClick="showDevices"/>
+
+    <!-- Usamos un LinearLayout para alinear el boton y la caja de texto -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_below="@id/lvDispositivos"
+        android:orientation="horizontal" >
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvConexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sin Conexion" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageButton
+            android:id="@+id/btnBluetooth"
+            android:background="@android:color/darker_gray"
+            android:src="@android:drawable/stat_sys_data_bluetooth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:onClick="activateBluetooth"/>
+        <Button
+            android:id="@+id/outAc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="outActivity"
+            android:text="Salir"/>
+    </LinearLayout>
+
+</LinearLayout>

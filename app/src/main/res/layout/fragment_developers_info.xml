@@ -1,0 +1,75 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.DevelopersInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:background="#AA000000"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/developersInfoLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linearLayoutDev1"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="0dp"
+            >
+        <ImageView
+            android:layout_width="0dp"
+            android:adjustViewBounds="true"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/batmanImage"
+            android:src="@drawable/batman"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textDeveloper1"
+                android:layout_weight="2"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/batmanImage"
+                android:text="Santiago Parra Rendón\nsantiago.parrar@udea.edu.co\n1040750143"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayoutDev2"
+            android:layout_below="@+id/linearLayoutDev1"
+            android:layout_height="0dp"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:id="@+id/wolverineImage"
+                android:src="@drawable/wolverine"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textDeveloper2"
+                android:layout_weight="2"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/wolverineImage"
+                android:text="Santiago Romero Restrepo\nsantiago.romero@udea.edu.co\n1026154938"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="lab2apprun.gr8.compumovil.udea.edu.co.lab2apprun.LoginActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:src="@drawable/aux"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/userLoginField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/logUser"
+            android:inputType="textNoSuggestions"
+            android:imeOptions="actionNext"
+            android:digits="abcdefghijklmnopqrstuvwxyz"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/passwordLoginField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/logPass"
+            android:imeOptions="actionGo"
+            android:layout_below="@+id/userLoginField"
+            android:layout_centerHorizontal="true" />
+
+        <CheckBox
+            android:id="@+id/rememberLoginCheckbox"
+            android:text="@string/checkRemem"
+            android:layout_below="@id/passwordLoginField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/loginSessionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log"
+            android:onClick="onClickLogin"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/registerLoginButton"
+            android:layout_toStartOf="@+id/registerLoginButton" />
+
+        <Button
+            android:id="@+id/registerLoginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logRegister"
+            android:onClick="onClickRegister"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/passwordLoginField"
+            android:layout_alignEnd="@+id/passwordLoginField" />
+    </RelativeLayout>
+</LinearLayout>
