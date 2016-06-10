@@ -62,7 +62,7 @@
         <com.example.santiagoromeroinv.drawing.DrawingView
             android:id="@+id/drawing"
             android:layout_width="match_parent"
-            android:layout_height="325dp"
+            android:layout_height="200dp"
             android:layout_marginBottom="3dp"
             android:layout_marginTop="3dp"
             android:background="#FFFFFFFF" />
@@ -216,17 +216,14 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_weight="2">
+
             <TextView
+                android:id="@+id/tvWordsSent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="@android:color/white"
+                android:layout_height="match_parent" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </ScrollView>
         <LinearLayout
             android:id="@+id/enterTextLayout"
             android:layout_width="0dp"
@@ -243,9 +240,10 @@
                 />
             <Button
                 android:id="@+id/sendButton"
+                android:onClick="sendWordAction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter text"/>
+                android:text="palabra"/>
         </LinearLayout>
 
     </LinearLayout>

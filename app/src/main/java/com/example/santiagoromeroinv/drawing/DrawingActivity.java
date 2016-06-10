@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class DrawingActivity extends AppCompatActivity {
     private BluetoothService send;
     private BluetoothDevice device;
     public Bitmap bmp;
+    public EditText sendText;
     private ByteBuffer b;
     public byte[] bytes;
 
@@ -41,6 +43,7 @@ public class DrawingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawing_main);
         drawView = (DrawingView) findViewById(R.id.drawing);
+        sendText = (EditText) findViewById(R.id.enterText);
         sendWord= (Button) findViewById(R.id.sendButton);
         LinearLayout paintLayout = (LinearLayout) findViewById(R.id.paint_colors);
         currPaint = (ImageButton) paintLayout.getChildAt(0);
@@ -204,6 +207,13 @@ public class DrawingActivity extends AppCompatActivity {
         bmp.copyPixelsToBuffer(b);
         bytes= b.array();
         return bytes;
+    }
+
+    public void sendWordAction(View view){
+        String word = sendText.getText().toString();
+        send = Constants.getService();
+        send.enviar(word.getBytes());
+        Toast.makeText(DrawingActivity.this, ""+Constants.isSlave(), Toast.LENGTH_SHORT).show();
     }
 
 }

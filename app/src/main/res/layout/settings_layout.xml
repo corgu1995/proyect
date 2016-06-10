@@ -10,7 +10,7 @@
         android:id="@+id/tvMensaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="sdasdfasas"
+        android:hint=""
         android:text=""/>
 
         <ListView

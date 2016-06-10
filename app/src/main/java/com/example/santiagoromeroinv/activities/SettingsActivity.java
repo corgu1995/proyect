@@ -49,6 +49,7 @@ public class SettingsActivity extends Activity {
     private Button btnConectarDispositivo;
     private Button btnSalir;
     private TextView tvMensaje;
+    private TextView wordsSent;
     private TextView tvConexion;
     private ListView lvDispositivos;
     public Bitmap bmp;
@@ -171,7 +172,7 @@ public class SettingsActivity extends Activity {
     }
     public void searchDevices(View view){
         arrayDevices.clear();
-
+        Constants.setSlave(false);
         // Comprobamos si existe un descubrimiento en curso. En caso afirmativo, se cancela.
         if(bAdapter.isDiscovering())
             bAdapter.cancelDiscovery();
@@ -195,6 +196,8 @@ public class SettingsActivity extends Activity {
     }
 
     public void outActivity(View view){
+
+        Toast.makeText(SettingsActivity.this, ""+Constants.isSlave(), Toast.LENGTH_SHORT).show();
         Constants.setService(servicio);
         Constants.setDevice(ultimoDispositivo);
         Intent i = new Intent(this, DrawingActivity.class);
@@ -222,24 +225,36 @@ public class SettingsActivity extends Activity {
                 // Mensaje de lectura: En este caso se convierte el mensaje para ser mostrado
                 case BluetoothService.MSG_LEER:
                 {
+                    try{
+                        wordsSent = (TextView) findViewById(R.id.tvWordsSent);
+                        bytes = (byte[])msg.obj;
+                        mensaje = new String(bytes, 0, msg.arg1);
+                        if (!mensaje.isEmpty()) {
+                            Toast.makeText(SettingsActivity.this, "" + mensaje, Toast.LENGTH_SHORT).show();
+                        }
+                        wordsSent.setText(wordsSent.getText() + "a\n" + mensaje);
+                    }finally{
+                        break;
+
+                    }
+                    /* ####################################################################################
+
                     try {
-
-
-                    bytes = (byte[])msg.obj;
-                    bmp=drawView.getDrawingCache();
-                    Bitmap.Config configBmp = Bitmap.Config.valueOf(bmp.getConfig().name());
-                    int width = bmp.getWidth();
-                    int height = bmp.getHeight();
-                    Bitmap bitmap_tmp = Bitmap.createBitmap(width, height, configBmp);
-                    ByteBuffer buffer = ByteBuffer.wrap(bytes);
-                    bitmap_tmp.copyPixelsFromBuffer(buffer);
-                    drawView.bitM(bitmap_tmp);
-                    //mensaje = new String(buffer, 0, msg.arg1);
-                    tvMensaje.setText(mensaje);
+                        bytes = (byte[])msg.obj;
+                        bmp=drawView.getDrawingCache();
+                        Bitmap.Config configBmp = Bitmap.Config.valueOf(bmp.getConfig().name());
+                        int width = bmp.getWidth();
+                        int height = bmp.getHeight();
+                        Bitmap bitmap_tmp = Bitmap.createBitmap(width, height, configBmp);
+                        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+                        bitmap_tmp.copyPixelsFromBuffer(buffer);
+                        drawView.bitM(bitmap_tmp);
+                        //mensaje = new String(buffer, 0, msg.arg1);
+                        tvMensaje.setText(mensaje);
                     }
                     finally {
                         break;
-                    }
+                    }*/
 
                 }
 

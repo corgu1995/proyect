@@ -117,7 +117,6 @@ public class BluetoothService {
         {
             hiloServidor = new HiloServidor();
             hiloServidor.start();
-            Constants.setSlave(false);
         }
 
         debug("iniciarServicio()", "Finalizando metodo");
