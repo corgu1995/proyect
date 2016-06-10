@@ -8,21 +8,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-<<<<<<< HEAD
     tools:context="com.example.santiagoromeroinv.login.RegisterActivity">
-=======
-    tools:context="co.edu.udea.compumovil.gr8.lab1ui.MainActivity">
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:id="@+id/registerLayout"
-<<<<<<< HEAD
             android:gravity="center"
-=======
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
             >
             <EditText
                 android:layout_width="match_parent"
@@ -63,31 +56,22 @@
                 android:text="@string/register"
                 android:id="@+id/registerButton"
                 android:onClick="onClickRegisterUser"
-<<<<<<< HEAD
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="86dp" />
 
 
-=======
-                android:layout_marginLeft="74dp"
-                android:layout_marginStart="74dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
 
             <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comeBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comeBack"
                 android:id="@+id/backRegisterButton"
-                    android:onClick="onClickGoBack"
-                android:layout_gravity="center_horizontal"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/registerButton"
-                android:layout_toEndOf="@+id/registerButton" />
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
+                android:onClick="onClickGoBack"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true" />
 
 
         </RelativeLayout>

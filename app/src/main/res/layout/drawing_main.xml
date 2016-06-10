@@ -240,14 +240,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/white"
-<<<<<<< HEAD
                 />
             <Button
                 android:id="@+id/sendButton"
-=======
-                android:hint="56156"/>
-            <Button
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enter text"/>

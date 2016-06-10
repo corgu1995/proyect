@@ -19,12 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name="com.example.santiagoromeroinv.drawing.DrawingActivity"
             android:screenOrientation="portrait"/>
-=======
-        <activity android:name="com.example.santiagoromeroinv.drawing.DrawingActivity"/>
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
         <activity android:name="com.example.santiagoromeroinv.login.RegisterActivity"/>
         <activity android:name="com.example.santiagoromeroinv.main.MainActivity"/>
         <activity android:name="com.example.santiagoromeroinv.activities.SettingsActivity"/>

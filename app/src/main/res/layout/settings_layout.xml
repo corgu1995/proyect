@@ -13,8 +13,6 @@
         android:hint="sdasdfasas"
         android:text=""/>
 
-<<<<<<< HEAD
-
         <ListView
             android:id="@+id/lvDispositivos"
             android:layout_width="match_parent"
@@ -36,21 +34,6 @@
         android:layout_height="wrap_content"
         android:text="Mostrar Enlazados"
         android:onClick="showDevices"/>
-=======
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/svListView"
-        android:layout_below="@id/tvMensaje">
-        <ListView
-            android:id="@+id/lvDispositivos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
-
-    </ScrollView>
-
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
 
     <!-- Usamos un LinearLayout para alinear el boton y la caja de texto -->
 
@@ -59,28 +42,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="bottom"
-<<<<<<< HEAD
         android:layout_below="@id/lvDispositivos"
         android:orientation="horizontal" >
 
-=======
-        android:layout_below="@id/svListView"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/btnBuscarDispositivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buscar Dispositivo"
-            android:onClick="searchDevices"/>
-
-        <Button
-            android:id="@+id/btnConectarDispositivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mostrar Enlazados"
-            android:onClick="showDevices"/>
->>>>>>> adab171b9516ac146976444a7863e17cdf955c2d
     </LinearLayout>
 
     <TextView
